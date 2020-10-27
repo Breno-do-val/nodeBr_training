@@ -80,6 +80,26 @@ async function main() {
 
 ````
 
+---- Applying TDD with MOCHA ----
+````
+describe('Suite de manipulacao de herois', async ()=> {
+
+    before(async () => {
+        await database.cadastrar(DEFAULT_ITEM_CADASTRAR);
+        await database.cadastrar(DEFAULT_ITEM_ATUALIZAR);
+    })
+
+    it('deve pesquisar um heroi usando arquivos', async() => {
+        const expected = DEFAULT_ITEM_CADASTRAR;
+        const [ resultado ] = await database.listar(expected.id);
+
+        deepStrictEqual(resultado, expected);
+    })
+
+})
+
+````
+
 #### License and copyright
 MIT.
 
