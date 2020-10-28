@@ -100,6 +100,22 @@ describe('Suite de manipulacao de herois', async ()=> {
 
 ````
 
+---- Using embedded command line interface to execute CRUD ----
+````
+Commander
+        .version('v1')
+        .option('-n, --nome [value]', "Nome do heroi")
+        .option('-p --poder [value]', "Poder do heroi" )
+        .option('-i --id [value]', "Id do heroi" )
+
+        .option('-c, --cadastrar', "Cadastrar um heroi")
+        .option('-l, --listar', "listar um heroi")
+        .option('-r, --remover', "remover um heroi por id")
+        .option('-a, --atualizar [value]', "atualizar um heroi por id")
+        .parse(process.argv)
+
+````
+
 #### License and copyright
 MIT.
 
