@@ -116,6 +116,19 @@ Commander
 
 ````
 
+---- Create an instance of PostgreSQL using DOCKER ----
+````
+docker run `
+    --name postgres `
+    -e POSTGRES_USER=**** `
+    -e POSTGRES_PASSWORD=********** `
+    -e POSTGRES_DB=heroes `
+    -p 5432:5432 `
+    -d `
+    postgres
+
+````
+
 #### License and copyright
 MIT.
 
