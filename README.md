@@ -12,7 +12,9 @@ Understanding Node.js fundamentals and best practices.
 Node.js fundamentals course instructed by [Erick Wendel](https://erickwendel.com.br)
 
 ### Technologies and dependencies
+* Express - Node.js framework
 * Axios - Promise based HTTP client for the browser and node.js
+* Docker - It creates simple tooling and a universal packaging approach that bundles up all application dependencies inside a container which is then run on Docker Engine.
 
 ### Hands on
 
@@ -126,6 +128,34 @@ docker run `
     -p 5432:5432 `
     -d `
     postgres
+
+````
+
+---- Using Strategy design patter for using database multi-schema
+````
+    class ContextStrategy {
+
+    constructor(strategy) {
+        this._database = strategy;
+    }
+
+    create(item) {
+        return this._database.create(item);
+    }
+
+    read(item) {
+        return this._database.read(item);
+    }
+
+    update(id, item) {
+        return this._database.update(id, item);
+    }
+
+    delete(id) {
+        return this._database.delete(id);
+    }
+
+}
 
 ````
 
