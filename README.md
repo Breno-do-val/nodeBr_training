@@ -15,6 +15,8 @@ Node.js fundamentals course instructed by [Erick Wendel](https://erickwendel.com
 * Express - Node.js framework
 * Axios - Promise based HTTP client for the browser and node.js
 * Docker - It creates simple tooling and a universal packaging approach that bundles up all application dependencies inside a container which is then run on Docker Engine.
+* PostgreSQL - Open-source relational database management system (RDBMS)
+* Sequelize - Promise-based Node.js ORM
 
 ### Hands on
 
