@@ -162,6 +162,23 @@ docker run `
 
 ````
 
+---- Using JOI for query string  validation ----
+````
+config: {
+    validate: {
+        failAction: (request, headers, error) => {
+            throw error;
+        },
+        query: {
+            skip: Joi.number().integer().default(0),
+            limit: Joi.number().integer().default(10),
+            nome: Joi.string().min(3).max(100)
+        }
+    }
+},
+
+````
+
 #### License and copyright
 MIT.
 

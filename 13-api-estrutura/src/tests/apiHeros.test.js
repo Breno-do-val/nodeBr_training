@@ -16,5 +16,5 @@ describe('Suite de testes da API Hero', function() {
         const statusCode = result.statusCode;
         assert.deepStrictEqual(statusCode, 200);
         assert.ok(Array.isArray(dados));
-    })
+    });
 })
