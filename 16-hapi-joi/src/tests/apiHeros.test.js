@@ -75,5 +75,18 @@ describe('Suite de testes da API Hero', function() {
 
         assert.ok(statusCode === 200);
         assert.deepStrictEqual(dados.message, 'HEROI atualizado com sucesso');
+    });
+
+    it('Remover DELETE - /herois/:id', async () => {
+        const _id = MOCK_ID;
+        const result = await app.inject({
+            method: 'DELETE',
+            url: `/herois/${id}`
+        });
+        const status = result.statusCode;
+        const dados = JSON.parse(result.payload);
+
+        assert.ok(statusCode === 200);
+        assert.deepStrictEqual(dados.message, 'Heroi removido com sucesso');
     })
 })
