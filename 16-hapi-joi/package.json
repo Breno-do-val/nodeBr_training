@@ -12,11 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "hapi": "^18.1.0",
+    "hapi-swagger": "^14.0.0",
+    "inert": "^5.1.3",
     "joi": "^17.3.0",
     "mongoose": "^5.10.13",
     "pg": "^8.4.2",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "vision": "^5.4.4"
   },
   "devDependencies": {
     "mocha": "^8.2.1"
