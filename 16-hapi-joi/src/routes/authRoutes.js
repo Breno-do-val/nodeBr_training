@@ -7,7 +7,7 @@ const USER = {
     password: '123'
 }
 
-//Authentication using JWT
+//Authentication using JWT 
 const Jwt = require('jsonwebtoken')
 
 class AuthRoutes extends BaseRoute {
