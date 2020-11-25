@@ -4,10 +4,12 @@ const Context =require('./db/strategies/base/contextStrategy');
 const MongoDb = require('./db/strategies/mongodb/mongodb');
 const HeroiSchema = require('./db/strategies/mongodb/schemas/heroiSchema');
 const HeroRoutes = require('./routes/heroRoutes');
+const AuthRoutes = require('./routes/authRoutes');
 
 const HapiSwagger = require('hapi-swagger');
 const Vision = require('vision');
-const Inert = require('inert');
+const inert = require('@hapi/inert');
+const JWT_SECRET = 'MEU_SEGREDÂO_123';
 
 const app = new Hapi.Server({
     port: 5000
@@ -31,16 +33,32 @@ async function main() {
     
     await app.register([
         Vision,
-        Inert,
+        inert,
         {
             plugin: HapiSwagger,
             options: swaggerOptions
         }
     ]);
 
-    app.route(
-        mapRoutes(new HeroRoutes(context), HeroRoutes.methods())
-    );
+    app.auth.strategy('jwt', 'jwt', {
+        key: JWT_SECRET,
+        options: {
+            expiresIn: 3600
+        },
+        validate: (dado, request) => {
+
+            return {
+                isValid: true
+            }
+        }
+    });
+
+    app.auth.default('jwt');
+
+    app.route([
+        ...mapRoutes(new HeroRoutes(context), HeroRoutes.methods()),
+        ...mapRoutes(new AuthRoutes(JWT_SECRET), AuthRoutes.methods())
+    ]);
 
     await app.start();
     console.log('Servidor rodando na porta ', app.info.port);
